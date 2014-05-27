@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace GenericMethodProblem
@@ -12,7 +11,7 @@ namespace GenericMethodProblem
 
             foreach (var row in rows)
             {
-                string[] cols = StringWorks.GetColumns(row);
+                string[] cols = row.Split(',');
 
                 var returnEx = new T();
                 returnEx.LoadRow<T>(cols);
@@ -26,15 +25,15 @@ namespace GenericMethodProblem
         {
             IList<string> rows1 = new List<string>
                 {
-                    "400</td>, <td>500</td>", 
-                    "\"four\"</td>, <td>\"five\"</td>", 
-                    "\"shemp\"</td>, <td>\"joe\"</td>"
+                    "400, 500", 
+                    "\"four\", \"five\"", 
+                    "\"shemp\", \"joe\""
                 };
             IList<string> rows2 = new List<string>
                 {
-                    "100</td>, <td>200</td>, <td>300</td>", 
-                    "\"one\"</td>, <td>\"two\"</td>, <td>\"three\"</td>", 
-                    "\"moe\"</td>, <td>\"larry\"</td>, <td>\"curly\"</td>"
+                    "100, 200, 300", 
+                    "\"one\", \"two\", \"three\"", 
+                    "\"moe\", \"larry\", \"curly\""
                 };
             
             var list1 = GetList<Models.ReturnEx1>(rows1);
